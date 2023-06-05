@@ -1,11 +1,11 @@
-# `generator`
+# `template`
 
 > TODO: description
 
 ## Usage
 
 ```
-const generator = require('generator');
+const template = require('template');
 
 // TODO: DEMONSTRATE API
 ```

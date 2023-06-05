@@ -1,11 +1,11 @@
-# `templates`
+# `rn-generator`
 
 > TODO: description
 
 ## Usage
 
 ```
-const templates = require('templates');
+const rnGenerator = require('rn-generator');
 
 // TODO: DEMONSTRATE API
 ```
