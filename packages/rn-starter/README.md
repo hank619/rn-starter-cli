@@ -1,11 +1,11 @@
-# `rn-generator`
+# `rn-starter`
 
 > TODO: description
 
 ## Usage
 
 ```
-const rnGenerator = require('rn-generator');
+const rnStarter = require('rn-starter');
 
 // TODO: DEMONSTRATE API
 ```

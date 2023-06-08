@@ -1,0 +1,35 @@
+{
+  "name": "rn-starter",
+  "version": "0.0.0",
+  "description": "scaffold for init rn project",
+  "author": "zhanghong <hong.zhang@axinan.com>",
+  "homepage": "https://github.com/matrixyf/rn-starter#readme",
+  "license": "ISC",
+  "bin": {
+    "rn-starter": "bin/rn-starter.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matrixyf/rn-starter.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/rn-starter.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/matrixyf/rn-starter/issues"
+  },
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "commander": "^10.0.1",
+    "cross-spawn": "^7.0.3",
+    "ejs": "^3.1.9",
+    "ora": "^6.3.1"
+  }
+}
