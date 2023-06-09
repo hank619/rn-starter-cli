@@ -12,7 +12,8 @@ program
   .option('-n, --name <projectName>', 'name of project to be created')
   .parse(process.argv);
 
-const projectName = program.projectName;
+const options = program.opts();
+const projectName = options.name;
 
 if (!projectName) {
   program.help();

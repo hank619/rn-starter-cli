@@ -9,27 +9,33 @@ const path = require('path');
 const ADD_ON_FILES = path.resolve(__dirname, '../../template/template');
 const BINARIES = /(gradlew|\.(jar|keystore|png|jpg|gif))$/;
 
+const ensureDirectoryExists = (directory) => {
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory, { recursive: true });
+  }
+}
+
 const copyDir = async (source, dest, options) => {
-  const files = fs.readdir(source);
+  const files = fs.readdirSync(source);
 
   for (const f of files) {
-    const target = path.join(dest, ejs.render(f, options));
+    const sourceFile = path.join(source, f);
+    const sourceStats = fs.statSync(sourceFile);
+    const targetFile = path.join(dest, ejs.render(f, options));
 
-    const file = path.join(source, f);
-    const stats = fs.statSync(file);
-
-    if (stats.isDirectory()) {
-      await copyDir(file, target);
-    } else if (!file.match(BINARIES)) {
-      const content = await fs.readFile(file, 'utf8');
-      fs.writeFileSync(target, ejs.render(content, options));
+    if (sourceStats.isDirectory()) {
+      ensureDirectoryExists(targetFile);
+      await copyDir(sourceFile, targetFile);
+    } else if (!sourceFile.match(BINARIES)) {
+      const content = fs.readFileSync(sourceFile, 'utf8');
+      fs.writeFileSync(targetFile, ejs.render(content, options));
     } else {
-      fs.copyFileSync(file, target);
+      fs.copyFileSync(sourceFile, targetFile);
     }
   }
 };
 
-export async function generateAddOn(projectName) {
+module.exports = async function generateAddOn(projectName) {
   const folder = path.join(process.cwd(), projectName);
   await copyDir(ADD_ON_FILES, folder, { projectName });
 }

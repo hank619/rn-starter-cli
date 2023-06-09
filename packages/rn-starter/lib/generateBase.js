@@ -7,10 +7,10 @@ const fs = require('fs');
 const path = require('path');
 const spawn = require('cross-spawn');
 
-const REACT_NATIVE_VERSION = '0.70.9';
+const REACT_NATIVE_VERSION = '0.71.10';
 
 const FILES_TO_REMOVE = [
-  'App.js',
+  'App.tsx',
   'index.js'
 ];
 
@@ -34,30 +34,28 @@ const DEV_DEPENDENCIES_TO_ADD = {
   "@formatjs/cli": "^4.2.7",
 };
 
-export async function generateBase(projectName) {
+module.exports = async function generateBase(projectName) {
   const folder = path.join(process.cwd(), projectName);
   const args = [
-    `react-native@@latest`,
-    init,
+    `react-native@latest`,
+    'init',
     projectName,
     '--version',
     REACT_NATIVE_VERSION,
-    '--template',
-    react - native - template - typescript,
     '--skip-install',
   ];
 
   await new Promise((resolve, reject) => {
     // `npx react-native init <projectName> --version <REACT_NATIVE_VERSION> --template react-native-template-typescript --skip-install`
-    const proc = spawn('npx', args);
+    const child = spawn('npx', args);
     let stderr = '';
-    proc.stderr?.setEncoding('utf8');
-    proc.stderr?.on('data', (data) => {
+    child.stderr?.setEncoding('utf8');
+    child.stderr?.on('data', (data) => {
       stderr += data;
     });
 
-    proc.on('close', resolve);
-    proc.on('error', reject);
+    child.on('close', resolve);
+    child.on('error', reject);
     child.once('exit', (code) => {
       if (code === 1) {
         reject(new Error(stderr));
@@ -72,8 +70,8 @@ export async function generateBase(projectName) {
   const pkg = JSON.parse(
     fs.readFileSync(path.join(folder, 'package.json'), 'utf8')
   );
-  const { script, dependencies, devDependencies } = pkg;
-  script.pods = 'pod-install --quiet';
+  const { scripts, dependencies, devDependencies } = pkg;
+  scripts.pods = 'pod-install --quiet';
   for (const [dep, version] of Object.entries(DEPENDENCIES_TO_ADD)) {
     dependencies[dep] = version;
   }
