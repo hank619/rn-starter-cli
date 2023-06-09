@@ -11,7 +11,8 @@ const REACT_NATIVE_VERSION = '0.71.10';
 
 const FILES_TO_REMOVE = [
   'App.tsx',
-  'index.js'
+  'index.js',
+  '.eslintrc.js',
 ];
 
 const DEPENDENCIES_TO_ADD = {
