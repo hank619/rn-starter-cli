@@ -15,8 +15,8 @@ const FILES_TO_REMOVE = [
 ];
 
 const DEPENDENCIES_TO_ADD = {
-  "@ant-design/react-native": "^5.0.1",
-  "@react-native-community/cameraroll": "^4.1.2",
+  "@ant-design/react-native": "^5.0.4",
+  "@react-native-camera-roll/camera-roll": "^5.6.0",
   "@react-native-community/segmented-control": "^2.2.2",
   "@react-native-community/slider": "^4.3.1",
   "@react-native-picker/picker": "^2.4.4",
@@ -71,7 +71,7 @@ module.exports = async function generateBase(projectName) {
     fs.readFileSync(path.join(folder, 'package.json'), 'utf8')
   );
   const { scripts, dependencies, devDependencies } = pkg;
-  scripts.pods = 'pod-install --quiet';
+  scripts.pods = 'npx pod-install --quiet';
   for (const [dep, version] of Object.entries(DEPENDENCIES_TO_ADD)) {
     dependencies[dep] = version;
   }

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
  * @Author: Hong.Zhang
  * @Date: 2023-06-08 15:57:33

@@ -46,5 +46,14 @@ module.exports = class Creator {
     spinner.text = 'Generating add-on plugins';
 
     await generateAddOn(this.projectName);
+
+    spinner.succeed('Generating project complete');
+    
+    console.log(`🎉  Successfully created project ${chalk.yellow(this.projectName)}.`);
+    console.log(
+      `👉  Get started with the following commands:\n\n` +
+      chalk.cyan(` ${chalk.gray('$')} cd ${this.projectName}\n`) +
+      chalk.cyan(` ${chalk.gray('$')} yarn install`)
+    );
   }
 }
