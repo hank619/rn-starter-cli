@@ -31,5 +31,6 @@
     "cross-spawn": "^7.0.3",
     "ejs": "^3.1.9",
     "ora": "^5.0.0"
-  }
+  },
+  "gitHead": "e05e83a7716c9e94ea9f17af3dd47a822aac680a"
 }
