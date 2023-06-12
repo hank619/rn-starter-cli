@@ -52,7 +52,7 @@ export default function Counter() {
           }}
         />
       </View>
-      <View style={{flexDirection: 'row',}}>
+      <View style={{flexDirection: 'row', alignItems: 'center', borderBottomWidth: 5}}>
         <Text style={{fontSize: 24}}>
           <FormattedMessage
             id='Step:'

@@ -3,7 +3,6 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Toast } from '@ant-design/react-native';
 
 import styles from './styles';
 
@@ -17,7 +16,6 @@ export default function HomeScreen() {
       </Text>
       <Button type="primary" onPress={() => {
         navigation.navigate('Counter');
-        Toast.info('This is a toast tips');
       }}>Go To Counter Page</Button>
     </View>
   );

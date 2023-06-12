@@ -1,12 +1,14 @@
 
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchCount } from "../../api/counter";
+import { AppDispatch } from "..";
 
 /**
- * namespace, initlaState and common reducers.
+ * namespace, initialState and common reducers.
  */
+const NAME = 'counter';
 const counterSlice = createSlice({
-  name: 'counter',
+  name: NAME,
   initialState: {
     count: 0,
   },
@@ -18,9 +20,7 @@ const counterSlice = createSlice({
     decrement: (state) => {
       state.count -= 1;
     },
-  },
-  extraReducers: {
-    'counter/incrementAsync/fulfilled': (state, { payload }) => {
+    save: (state, { payload }) => {
       state.count += payload;
     },
   },
@@ -30,20 +30,22 @@ const counterSlice = createSlice({
 /**
  * actions
  */
-// side effects actions, like API request
- export const incrementAsync = createAsyncThunk(
-  'counter/incrementAsync',
-  async (s: number) => {
-    const response = await fetchCount(s);
-    return response.data;
-  }
-);
+const incrementAsync = (delay: number) => (dispatch: AppDispatch) => {
+  fetchCount(delay)
+  .then((({data}) => {
+    dispatch(save(data));
+  }))
+  .catch(() => {
+
+  });
+ };
 
 // common actions generated according to common reducers
-export const {increment, decrement} = counterSlice.actions;
-
+const {increment, decrement, save} = counterSlice.actions;
 
 /**
- * deault export
+ * export
  */
+export { increment, decrement, save, incrementAsync };
 export default counterSlice.reducer;
+
