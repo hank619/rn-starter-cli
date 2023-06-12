@@ -1,5 +1,6 @@
 
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit'
 import { fetchCount } from "../../api/counter";
 import { AppDispatch } from "..";
 
@@ -20,7 +21,7 @@ const counterSlice = createSlice({
     decrement: (state) => {
       state.count -= 1;
     },
-    save: (state, { payload }) => {
+    save: (state, { payload }: PayloadAction<number>) => {
       state.count += payload;
     },
   },
