@@ -53,7 +53,7 @@ module.exports = class Creator {
     console.log(
       `👉  Get started with the following commands:\n\n` +
       chalk.cyan(` ${chalk.gray('$')} cd ${this.projectName}\n`) +
-      chalk.cyan(` ${chalk.gray('$')} yarn install`)
+      chalk.cyan(` ${chalk.gray('$')} yarn install && yarn pods`)
     );
   }
 }

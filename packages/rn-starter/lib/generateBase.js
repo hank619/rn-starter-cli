@@ -79,10 +79,18 @@ module.exports = async function generateBase(projectName) {
   for (const [dep, version] of Object.entries(DEV_DEPENDENCIES_TO_ADD)) {
     devDependencies[dep] = version;
   }
-
   fs.writeFileSync(
     path.join(folder, 'package.json'),
     JSON.stringify(pkg, null, 2)
+  );
+
+  const tsConfigPkg = JSON.parse(
+    fs.readFileSync(path.join(folder, 'tsconfig.json'), 'utf8')
+  );
+  tsConfigPkg.compilerOptions.allowSyntheticDefaultImports = true;
+  fs.writeFileSync(
+    path.join(folder, 'tsconfig.json'),
+    JSON.stringify(tsConfigPkg, null, 2)
   );
 
 }
