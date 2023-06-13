@@ -87,7 +87,8 @@ module.exports = async function generateBase(projectName) {
   const tsConfigPkg = JSON.parse(
     fs.readFileSync(path.join(folder, 'tsconfig.json'), 'utf8')
   );
-  tsConfigPkg.compilerOptions.allowSyntheticDefaultImports = true;
+  tsConfigPkg.compilerOptions = {};
+  tsConfigPkg.compilerOptions.allowSyntheticDefaultImports = true
   fs.writeFileSync(
     path.join(folder, 'tsconfig.json'),
     JSON.stringify(tsConfigPkg, null, 2)
