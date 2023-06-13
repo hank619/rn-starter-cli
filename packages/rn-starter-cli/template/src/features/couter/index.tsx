@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { SetAppLocaleContext } from '../../locales/index'; 
 import { AppDispatch, RootState } from "../../store";
 import { decrement, incrementAsync } from "../../store/slice/counterSlice";
-import styles from './styles';
 
 export default function Counter() {
 
@@ -34,14 +33,14 @@ export default function Counter() {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+    <View className="h-full justify-center items-center">
+      <View className="flex-row items-center">
         <Button
           title='-'
           onPress={dec}
         />
         <Text
-          style={{fontSize: 24,}}
+          className=' text-2xl'
         >
           {count}
         </Text>
@@ -52,14 +51,14 @@ export default function Counter() {
           }}
         />
       </View>
-      <View style={{flexDirection: 'row', alignItems: 'center', borderBottomWidth: 5}}>
-        <Text style={{fontSize: 24}}>
+      <View className='flex-row items-center border-b-5'>
+        <Text className=' text-2xl'>
           <FormattedMessage
             id='Step:'
           />
         </Text>
         <TextInput
-          style={{width: 50, textAlign: 'center', fontSize: 24}}
+          className='w-10 text-center text-2xl'
           value={step}
           onChangeText={(text) => {
             setStep(text);

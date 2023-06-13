@@ -13,6 +13,7 @@ const FILES_TO_REMOVE = [
   'App.tsx',
   'index.js',
   '.eslintrc.js',
+  '__tests__',
 ];
 
 const DEPENDENCIES_TO_ADD = {
@@ -29,10 +30,12 @@ const DEPENDENCIES_TO_ADD = {
   "react-native-safe-area-context": "^4.3.3",
   "react-native-screens": "^3.17.0",
   "react-redux": "^8.0.2",
+  "nativewind": "^2.0.11",
 };
 
 const DEV_DEPENDENCIES_TO_ADD = {
   "@formatjs/cli": "^4.2.7",
+  "tailwindcss": "^3.3.2",
 };
 
 module.exports = async function generateBase(projectName) {
@@ -65,7 +68,7 @@ module.exports = async function generateBase(projectName) {
   });
 
   for (file of FILES_TO_REMOVE) {
-    fs.rmSync(path.join(folder, file));
+    fs.rmSync(path.join(folder, file), { recursive: true, force: true });
   }
 
   const pkg = JSON.parse(
@@ -88,10 +91,12 @@ module.exports = async function generateBase(projectName) {
     fs.readFileSync(path.join(folder, 'tsconfig.json'), 'utf8')
   );
   tsConfigPkg.compilerOptions = {};
-  tsConfigPkg.compilerOptions.allowSyntheticDefaultImports = true
+  tsConfigPkg.compilerOptions.allowSyntheticDefaultImports = true;
+  tsConfigPkg.compilerOptions.jsx = "react";
+
   fs.writeFileSync(
     path.join(folder, 'tsconfig.json'),
     JSON.stringify(tsConfigPkg, null, 2)
   );
 
-}
+};

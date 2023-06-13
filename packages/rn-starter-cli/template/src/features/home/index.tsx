@@ -4,13 +4,11 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import styles from './styles';
-
 export default function HomeScreen() {
 
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   return (
-    <View style={styles.container}>
+    <View className='h-full flex-column justify-center items-center'>
       <Text>
         Home Screen
       </Text>
