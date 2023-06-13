@@ -6,7 +6,7 @@
   "homepage": "https://github.com/matrixyf/rn-starter-cli#readme",
   "license": "ISC",
   "bin": {
-    "rn-starter": "bin/rn-starter.js"
+    "rn-starter-cli": "bin/rn-starter-cli.js"
   },
   "directories": {
     "lib": "lib",

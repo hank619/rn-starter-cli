@@ -6,7 +6,7 @@
 const ejs = require('ejs');
 const fs = require('fs');
 const path = require('path');
-const ADD_ON_FILES = path.resolve(__dirname, '../../template/template');
+const ADD_ON_FILES = path.resolve(__dirname, '../template');
 const BINARIES = /(gradlew|\.(jar|keystore|png|jpg|gif))$/;
 
 const ensureDirectoryExists = (directory) => {
