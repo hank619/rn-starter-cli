@@ -16,13 +16,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matrixyf/rn-starter.git"
+    "url": "git+https://github.com/matrixyf/rn-starter-cli.git"
   },
   "scripts": {
     "test": "node ./__tests__/template.test.js"
   },
   "bugs": {
-    "url": "https://github.com/matrixyf/rn-starter/issues"
+    "url": "https://github.com/matrixyf/rn-starter-cli/issues"
   },
-  "homepage": "https://github.com/matrixyf/rn-starter#readme"
+  "homepage": "https://github.com/matrixyf/rn-starter-cli#readme"
 }
