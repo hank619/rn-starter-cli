@@ -22,9 +22,7 @@ rn-starter-cli --name <projectName>
 
 ## Todo
 add rn-widget
+
 ## Refs
 https://github.com/vuejs/vue-cli
 https://github.com/callstack/react-native-builder-bob
-
-
-
