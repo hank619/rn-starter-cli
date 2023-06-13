@@ -47,6 +47,17 @@ module.exports = class Creator {
 
     await generateAddOn(this.projectName);
 
+    try {
+      spawn.sync('git', ['init'], { cwd: folder });
+      spawn.sync('git', ['branch', '-M', 'main'], { cwd: folder });
+      spawn.sync('git', ['add', '.'], { cwd: folder });
+      spawn.sync('git', ['commit', '-m', 'chore: initial commit'], {
+        cwd: folder,
+      });
+    } catch (e) {
+      console.log(chalk.red(`Could not initialize git repo`));
+    }
+
     spinner.succeed('Generating project complete');
     
     console.log(`🎉  Successfully created project ${chalk.yellow(this.projectName)}.`);

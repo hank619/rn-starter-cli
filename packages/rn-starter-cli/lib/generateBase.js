@@ -47,7 +47,7 @@ module.exports = async function generateBase(projectName) {
   ];
 
   await new Promise((resolve, reject) => {
-    // `npx react-native init <projectName> --version <REACT_NATIVE_VERSION> --template react-native-template-typescript --skip-install`
+    // `npx react-native init <projectName> --version <REACT_NATIVE_VERSION> --skip-install`
     const child = spawn('npx', args);
     let stderr = '';
     child.stderr?.setEncoding('utf8');
