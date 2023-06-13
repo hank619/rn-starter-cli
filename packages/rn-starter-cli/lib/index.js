@@ -63,8 +63,9 @@ module.exports = class Creator {
     console.log(`🎉  Successfully created project ${chalk.yellow(this.projectName)}.`);
     console.log(
       `👉  Get started with the following commands:\n\n` +
-      chalk.cyan(` ${chalk.gray('$')} cd ${this.projectName}\n`) +
-      chalk.cyan(` ${chalk.gray('$')} yarn install && yarn pods`)
+      chalk.cyan(` ${chalk.gray('$')} cd ${this.projectName} && yarn install\n`) +
+      chalk.cyan(` ${chalk.gray('$')} Android: yarn android\n`) +
+      chalk.cyan(` ${chalk.gray('$')} ios: yarn pods && yarn ios`)
     );
   }
 }
