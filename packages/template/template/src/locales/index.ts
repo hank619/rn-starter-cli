@@ -1,8 +1,3 @@
-/*
- * @Author: Hong.Zhang
- * @Date: 2022-09-07 15:33:49
- * @Description:
- */
 import React from "react";
 
 import enUS from './en-US';
