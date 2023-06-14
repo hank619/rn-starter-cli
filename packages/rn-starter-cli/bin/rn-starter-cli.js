@@ -11,11 +11,11 @@ const Creator = require('../lib');
 const pkg = require('../package.json');
 
 program
-  .command(pkg.name)
   .description('A CLI for creating an rn scaffold project')
-  .version(pkg.version)
   .arguments('<projectName>')
+  .version(pkg.version)
   .action((projectName) => {
     new Creator(projectName).create();
-  })
-  .parse(process.argv);
+  });
+
+program.parse(process.argv);
