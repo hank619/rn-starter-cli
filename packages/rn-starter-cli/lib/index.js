@@ -65,7 +65,7 @@ module.exports = class Creator {
       `👉  Get started with the following commands:\n\n` +
       chalk.cyan(` ${chalk.gray('$')} cd ${this.projectName} && yarn install\n`) +
       chalk.cyan(` ${chalk.gray('$')} Android: yarn android\n`) +
-      chalk.cyan(` ${chalk.gray('$')} ios: yarn pods && yarn ios`)
+      chalk.cyan(` ${chalk.gray('$')} ios    : yarn pods && yarn ios`)
     );
   }
 }

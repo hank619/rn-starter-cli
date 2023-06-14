@@ -8,17 +8,14 @@
 const program = require('commander');
 const Creator = require('../lib');
 
+const pkg = require('../package.json');
+
 program
-  .description('A CLI for creating a rn scaffold project')
-  .version(require('../package.json').version)
-  .option('-n, --name <projectName>', 'name of project to be created')
+  .command(pkg.name)
+  .description('A CLI for creating an rn scaffold project')
+  .version(pkg.version)
+  .arguments('<projectName>')
+  .action((projectName) => {
+    new Creator(projectName).create();
+  })
   .parse(process.argv);
-
-const options = program.opts();
-const projectName = options.name;
-
-if (!projectName) {
-  program.help();
-}
-
-new Creator(projectName).create();

@@ -5,12 +5,12 @@ An out-of-box CLI for fast scaffold react native project with some necessary lib
 
 ## Usage
 ```
-npx rn-starter-cli --name <projectName>
+npx rn-starter-cli <projectName>
 ```
 or
 ```
 yarn global add rn-starter-cli
-rn-starter-cli --name <projectName>
+rn-starter-cli <projectName>
 ```
 
 ## Feature
